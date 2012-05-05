@@ -1,0 +1,8 @@
+--- * --- CHANGELIST --- * ---
+
+--- v0.0.1 ---
+- Added Tilemap
+- Added tile collisions
+- Doors open and close
+- Torch's can be turned on and off
+- Added minor soundfx 
