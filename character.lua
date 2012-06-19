@@ -1,4 +1,4 @@
 function updateCharacterStatus()
-	if selectedBarItem == 1	then character.weapon = true
-		else character.weapon = false end
+	if selectedBarItem == 1	then character.weapon = "sword"
+		else character.weapon = "false" end
 end

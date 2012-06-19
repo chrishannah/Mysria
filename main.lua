@@ -2,6 +2,7 @@ require "configs"
 require "draw"
 require "TEsound"
 require "inventory"
+require "character"
 
 
 function love.load()
@@ -50,7 +51,7 @@ function love.load()
 	character.tileY = 9
 	character.facing = "down"
 	character.health = 100
-	character.weapon = false
+	character.weapon = "false"
 
 	-- Start music
  	TEsound.playLooping("sounds/music.ogg")
@@ -97,7 +98,7 @@ function love.update(dt)
 
 	displayTime = displayTime + dt
 	
-	if selectedBarItem == 1 then character.weapon = true else character.weapon = false end
+	updateCharacterStatus()
 
 	TEsound.cleanup()
 
@@ -148,8 +149,11 @@ function love.keypressed(k)
 				if nextTile.properties.torchOn then 
 					map.tileLayers.walls.tileData[nextY][nextX] = torchOffTile
 				end
-				if nextTile.properties.slug then
-					monsterHit("slug")
+				if character.weapon == "sword" then
+					if nextTile.properties.slug then
+						monsterHit("slug")
+					end
+				end
 			end
 		end
 	end
