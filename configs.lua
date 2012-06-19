@@ -1,6 +1,6 @@
 function configureWindow()
 	love.graphics.setBackgroundColor( 91, 64, 105)
-	love.audio.setVolume(0.0)
+	love.audio.setVolume(0.5)
 	love.keyboard.setKeyRepeat( 0.25, 0.25)
 
 
@@ -32,4 +32,6 @@ function loadTileIDs()
 	openDoorTile = map.tileLayers.tileids.tileData[1][5]
 	torchOffTile = map.tileLayers.tileids.tileData[1][11]
 	torchOnTile = map.tileLayers.tileids.tileData[1][3]
+	slugAliveTile = map.tileLayers.tileids.tileData[1][12]
+	slugDeadTile = map.tileLayers.tileids.tileData[1][13]
 end
