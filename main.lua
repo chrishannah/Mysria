@@ -50,6 +50,7 @@ function love.load()
 	character.tileY = 9
 	character.facing = "down"
 	character.health = 100
+	character.weapon = false
 
 	-- Start music
  	TEsound.playLooping("sounds/music.ogg")
@@ -95,6 +96,8 @@ function love.update(dt)
 	fps = love.timer.getFPS( )
 
 	displayTime = displayTime + dt
+	
+	if selectedBarItem == 1 then character.weapon = true else character.weapon = false end
 
 	TEsound.cleanup()
 
@@ -145,6 +148,8 @@ function love.keypressed(k)
 				if nextTile.properties.torchOn then 
 					map.tileLayers.walls.tileData[nextY][nextX] = torchOffTile
 				end
+				if nextTile.properties.slug then
+					monsterHit("slug")
 			end
 		end
 	end
@@ -260,6 +265,17 @@ function characterDraw()
 	end
 
 end
+
+function monsterHit(monster, tile)
+	if monster == "slug" then
+		-- Change slug to dead slug
+		map.tileLayers.walls.tileData[nextY][nextX] = slugDeadTile
+		-- Play noise
+		-- Start a timer of 3 seconds
+		-- Destroy slug tile
+	end
+end
+		
 
 function reset()
 	global.tx = 0
