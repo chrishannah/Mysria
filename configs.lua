@@ -1,10 +1,7 @@
 function configureWindow()
-	love.graphics.setBackgroundColor( 91, 64, 105)
-	love.audio.setVolume(0.5)
-	love.keyboard.setKeyRepeat( 0.25, 0.25)
-
-
-
+	love.graphics.setBackgroundColor(91, 64, 105)
+	love.audio.setVolume(0)
+	love.keyboard.setKeyRepeat(0.25, 0.25)
 end
 
 function loadFonts()
@@ -34,4 +31,16 @@ function loadTileIDs()
 	torchOnTile = map.tileLayers.tileids.tileData[1][3]
 	slugAliveTile = map.tileLayers.tileids.tileData[1][12]
 	slugDeadTile = map.tileLayers.tileids.tileData[1][13]
+end
+
+function volumeUp()
+	currentVolume = love.audio.getVolume()
+	if currentVolume == 1 then return end
+	love.audio.setVolume(currentVolume + 0.1)
+end
+
+function volumeDown()
+	currentVolume = love.audio.getVolume()
+	if currentVolume == 0 then return end
+	love.audio.setVolume(currentVolume - 0.1)
 end

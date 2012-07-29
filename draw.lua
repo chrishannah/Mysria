@@ -8,6 +8,13 @@ function drawHUD(screenX, screenY, imageX, imageY)
 	-- Draw HUD background
 	love.graphics.draw(hudImage, HUDX, HUDY)
 
+	-- Draw Coins
+	if global.coins then 
+		-- Draw Coins
+		love.graphics.setFont(fpsFont)
+		love.graphics.print("Coins:", 540, 448)
+		love.graphics.print(global.coins, 610, 448) 
+	end
 end
 
 function drawItems()

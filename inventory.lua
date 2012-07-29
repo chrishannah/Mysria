@@ -1,7 +1,6 @@
--- Set up variables
-selectedItem = 1
-selectedBarItem = 1
-
+	-- Set up variables
+	selectedItem = 1
+	selectedBarItem = 1
 
 function inventoryKey(k)
 	if k == 'up' then
@@ -32,8 +31,6 @@ function inventoryKey(k)
 		end
 		selectedItem = selectedItem + 1
 	end
-
-	
 end
 
 function inventoryDraw()
@@ -151,28 +148,28 @@ function loadItemData()
 			x = 92,
 			image = love.graphics.newImage("images/items/item1.png"),
 			description = "This is a very sharp sword, with which you can slay monsters of all kinds.",
-			quantity = 0,
+			quantity = 1,
 			}
 	item2 = {
 			name = "Pick Axe",
 			x = 134,
 			image = love.graphics.newImage("images/items/item2.png"),
 			description = "This is a heavy duty Pick Axe, so you can mine through stone and collect valuable minerals.",
-			quantity = 0,
+			quantity = 1,
 			}
 	item3 = {
 			name = "Axe",
 			x = 176,
 			image = love.graphics.newImage("images/items/item3.png"),
 			description = "This is a hand crafted Axe, with which you can harvest all you wood you wish.",
-			quantity = 0,
+			quantity = 1,
 			}
 	item4 = {
 			name = "Shovel",
 			x = 218,
 			image = love.graphics.newImage("images/items/item4.png"),
 			description = "This is a shovel, so you can dig however much dirt you wish.",
-			quantity = 0,
+			quantity = 1,
 			}
 	item5 = {
 			name = "item5",
@@ -266,4 +263,12 @@ function enableItem(k)
 	if k == '8' then selectedBarItem = 8 end
 	if k == '9' then selectedBarItem = 9 end
 	if k == '0' then selectedBarItem = 0 end
+end
+
+function toggleInventory() 
+	if global.inventory == true then 
+		global.inventory = false
+	else 
+		global.inventory = true 
+	end
 end
